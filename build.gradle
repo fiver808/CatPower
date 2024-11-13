@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+group = 'JavaFXProjects'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // JavaFX Dependencies
+    implementation 'org.openjfx:javafx-controls:17.0.2'
+    implementation 'org.openjfx:javafx-fxml:17.0.2'
+    implementation 'org.openjfx:javafx-media:17.0.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javafx {
+    version = '17.0.2'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.media']
+}
+
+// Ensure the correct JVM arguments for running the application
+//tasks.named('run') {
+//    doFirst {
+//        jvmArgs = [
+//                '--module-path', '/Users/melin/javafx-sdk-17.0.12/lib',
+//                '--add-modules', 'javafx.controls,javafx.fxml,javafx.media'
+//        ]
+//    }
+//}
+
+application {
+    mainClass = 'MainApp'
+}
